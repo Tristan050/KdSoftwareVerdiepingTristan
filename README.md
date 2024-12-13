@@ -43,16 +43,16 @@ This section lists the major frameworks/libraries used to bootstrap your project
 - Deposit money into the account.
 - Withdraw money from the account.
 - View the previous transaction.
-- User-friendly.
+- User-friendly interface.
 
 ### Usage
 
-1. Start the application by running the command:
+1. Start the application by running the following command:
    ```sh
    ./mvnw spring-boot:run
    Go to localhost:8080 in the browser.
    ```
-2. Follow the menu instructions:
+2. Follow these instructions in the application:
    - Click `Deposit` to deposit money.
    - Click `Withdraw` to withdraw money.
    - Click `Previous Transaction` to view the previous transaction.
