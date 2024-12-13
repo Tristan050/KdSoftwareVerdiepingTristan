@@ -35,7 +35,7 @@ Follow these steps to set up and run the Banking Application:
 This section lists the major frameworks/libraries used to bootstrap your project. Below is an example:
 
 * ![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white)
-* ![SpringBoot](./demo/images/Spring.jpeg)
+* ![SpringBoot]<img src="./demo/images/Spring.jpeg" width="30" height="20" />
 
 ### Features
 
