@@ -25,7 +25,7 @@ Follow these steps to set up and run the Banking Application:
 
 3. Run `./mvnw spring-boot:run` in the terminal.
 
-4. Go to the url:
+4. Go to the localhost url:
    ```sh
    localhost:8080
    ```
@@ -35,7 +35,7 @@ Follow these steps to set up and run the Banking Application:
 This section lists the major frameworks/libraries used to bootstrap your project. Below is an example:
 
 * ![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white)
-* ![SpringBoot]()
+* ![SpringBoot](./demo/images/Spring.jpeg)
 
 ### Features
 
