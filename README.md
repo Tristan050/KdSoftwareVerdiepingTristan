@@ -35,7 +35,7 @@ Follow these steps to set up and run the Banking Application:
 This section lists the major frameworks/libraries used to bootstrap your project. Below is an example:
 
 * ![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white)
-* !<img src="./demo/images/Spring.jpeg" width="150" height="80" />
+* <img src="./demo/images/Spring.png" width="150" height="80" />
 
 ### Features
 
@@ -50,7 +50,7 @@ This section lists the major frameworks/libraries used to bootstrap your project
 1. Start the application by running the command:
    ```sh
    ./mvnw spring-boot:run
-   Go to `localhost:8080` in the browser.
+   Go to localhost:8080 in the browser.
    ```
 2. Follow the menu instructions:
    - Click `Deposit` to deposit money.
