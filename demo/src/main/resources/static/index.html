@@ -1,45 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://cdn.tailwindcss.com"></script>
   <title>Tristan's Bank</title>
 </head>
-<body class="bg-gray-100 font-sans">
-  <div class="max-w-md mx-auto mt-10 bg-white shadow-lg rounded-lg p-6">
-    <h1 class="text-2xl font-bold text-center text-green-600">Tristan's Bank</h1>
-    <div id="balance" class="text-xl text-gray-700 mt-4">Saldo: €0</div>
 
-    <input id="amount" type="number" placeholder="Voer een bedrag in" class="w-full mt-4 p-2 border rounded-lg">
-    <button onclick="deposit()" class="w-full bg-green-500 text-white py-2 mt-4 rounded-lg hover:bg-green-600">Storten</button>
-    <button onclick="withdraw()" class="w-full bg-red-500 text-white py-2 mt-4 rounded-lg hover:bg-red-600">Opnemen</button>
-    <button onclick="getPreviousTransaction()" class="w-full bg-blue-500 text-white py-2 mt-4 rounded-lg hover:bg-blue-600">Vorige Transactie</button>
+<body class="bg-gray-100 font-sans">
+  <div
+    class="max-w-md mx-auto mt-10 bg-white shadow-2xl rounded-xl p-8 transform hover:scale-105 transition-all duration-300 ease-in-out">
+    <h1 class="text-4xl font-extrabold text-center text-green-600 mb-6">Tristan's Bank</h1>
+    <div id="balance" class="text-2xl font-semibold text-gray-700 mt-4 mb-6">Saldo: €0</div>
+
+    <div class="space-y-4">
+      <input id="amount" type="number" placeholder="Voer een bedrag in"
+        class="w-full p-4 border-2 border-gray-300 rounded-lg text-xl focus:outline-none focus:ring-2 focus:ring-green-500 transition-all duration-200">
+
+      <!-- Deposit Button met animatie -->
+      <button onclick="deposit()"
+        class="w-full bg-gradient-to-r from-green-400 via-green-500 to-green-600 text-white py-3 rounded-lg font-semibold text-lg hover:bg-green-700 transition duration-200 ease-in-out transform hover:scale-105 deposit-button">
+        Storten
+      </button>
+
+      <!-- Withdraw Button met animatie -->
+      <button onclick="withdraw()"
+        class="w-full bg-gradient-to-r from-red-400 via-red-500 to-red-600 text-white py-3 rounded-lg font-semibold text-lg hover:bg-red-700 transition duration-200 ease-in-out transform hover:scale-105 withdraw-button">
+        Opnemen
+      </button>
+      
+      <!-- Previous Transaction Button met animatie -->
+      <button onclick="getPreviousTransaction()"
+        class="w-full bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600 text-white py-3 rounded-lg font-semibold text-lg hover:bg-blue-700 transition duration-200 ease-in-out transform hover:scale-105">
+        Vorige Transactie
+      </button>
+    </div>
   </div>
 
   <script>
     const apiUrl = "/api/bank";
 
+    // fetched balans, laat daarna zien
     async function fetchBalance() {
       const response = await fetch(`${apiUrl}/balance`);
       const balance = await response.text();
       document.getElementById("balance").innerText = `Saldo: €${balance}`;
     }
-
+    // Wacht tot dat er deposited is. Laat daarna input zien
     async function deposit() {
-      const amount = document.getElementById("amount").value;
-      await fetch(`${apiUrl}/deposit?amount=${amount}`, { method: "POST" });
-      fetchBalance();
-    }
+      const amountInput = document.getElementById("amount");
+      const amount = amountInput.value;
 
+      // Check of het bedrag groter dan 0 is voordat ik de storting uitvoer
+      if (amount > 0) {
+        const response = await fetch(`${apiUrl}/deposit?amount=${amount}`, { method: "POST" });
+        const message = await response.text();
+        alert(message);
+        fetchBalance();
+
+        // Start de animatie voor de deposit-knop
+        const button = document.querySelector(".deposit-button");
+        button.classList.add("animate-pulse");
+
+        // Verwijder animatie na 1 seconde
+        setTimeout(() => {
+          button.classList.remove("animate-pulse");
+        }, 1000);
+
+        // Reset het inputveld na de storting
+        amountInput.value = "";
+      } else {
+        alert("Voer een geldig bedrag in.");
+      }
+    }
+    // Wacht tot dat er withdrawed is. Laat daarna zien hoeveel er withdrawed is
     async function withdraw() {
-      const amount = document.getElementById("amount").value;
-      const response = await fetch(`${apiUrl}/withdraw?amount=${amount}`, { method: "POST" });
-      const message = await response.text();
-      alert(message);
-      fetchBalance();
+      const amountInput = document.getElementById("amount");
+      const amount = amountInput.value;
+
+      // Check of het bedrag groter dan 0 is voordat ik de opname uitvoer
+      if (amount > 0) {
+        const response = await fetch(`${apiUrl}/withdraw?amount=${amount}`, { method: "POST" });
+        const message = await response.text();
+        alert(message);
+        fetchBalance();
+
+        // Reset het inputveld na de opname
+        amountInput.value = "";
+      } else {
+        alert("Voer een geldig bedrag in.");
+      }
     }
 
+    // Wacht tot er een vorige transactie is. Laat daarna in een alert zien wat de vorige transactie was
     async function getPreviousTransaction() {
       const response = await fetch(`${apiUrl}/previous-transaction`);
       const message = await response.text();
@@ -49,4 +103,5 @@
     fetchBalance();
   </script>
 </body>
+
 </html>

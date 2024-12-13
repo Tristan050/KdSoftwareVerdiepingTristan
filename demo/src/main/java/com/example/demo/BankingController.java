@@ -16,7 +16,11 @@ public class BankingController {
     @PostMapping("/deposit")
     public String deposit(@RequestParam int amount) {
         bankAccount.deposit(amount);
-        return "You have Deposited: " + amount;
+        if(amount < 1){
+            return "You can't deposit negative numbers";
+        }else{
+            return "You have Deposited: " + amount;
+        }
     }
 
     @PostMapping("/withdraw")
