@@ -12,28 +12,28 @@
   <div
     class="max-w-md mx-auto mt-10 bg-white shadow-2xl rounded-xl p-8 transform hover:scale-105 transition-all duration-300 ease-in-out">
     <h1 class="text-4xl font-extrabold text-center text-green-600 mb-6">Tristan's Bank</h1>
-    <div id="balance" class="text-2xl font-semibold text-gray-700 mt-4 mb-6">Saldo: €0</div>
+    <div id="balance" class="text-2xl font-semibold text-gray-700 mt-4 mb-6">Balance: €0</div>
 
     <div class="space-y-4">
-      <input id="amount" type="number" placeholder="Voer een bedrag in"
+      <input id="amount" type="number" placeholder="Enter an amount"
         class="w-full p-4 border-2 border-gray-300 rounded-lg text-xl focus:outline-none focus:ring-2 focus:ring-green-500 transition-all duration-200">
 
       <!-- Deposit Button met animatie -->
       <button onclick="deposit()"
         class="w-full bg-gradient-to-r from-green-400 via-green-500 to-green-600 text-white py-3 rounded-lg font-semibold text-lg hover:bg-green-700 transition duration-200 ease-in-out transform hover:scale-105 deposit-button">
-        Storten
+        Deposit
       </button>
 
       <!-- Withdraw Button met animatie -->
       <button onclick="withdraw()"
         class="w-full bg-gradient-to-r from-red-400 via-red-500 to-red-600 text-white py-3 rounded-lg font-semibold text-lg hover:bg-red-700 transition duration-200 ease-in-out transform hover:scale-105 withdraw-button">
-        Opnemen
+        Withdraw
       </button>
-      
+
       <!-- Previous Transaction Button met animatie -->
       <button onclick="getPreviousTransaction()"
         class="w-full bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600 text-white py-3 rounded-lg font-semibold text-lg hover:bg-blue-700 transition duration-200 ease-in-out transform hover:scale-105">
-        Vorige Transactie
+        Previous Transaction
       </button>
     </div>
   </div>
@@ -45,7 +45,7 @@
     async function fetchBalance() {
       const response = await fetch(`${apiUrl}/balance`);
       const balance = await response.text();
-      document.getElementById("balance").innerText = `Saldo: €${balance}`;
+      document.getElementById("balance").innerText = `Balance: €${balance}`;
     }
     // Wacht tot dat er deposited is. Laat daarna input zien
     async function deposit() {
@@ -71,7 +71,7 @@
         // Reset het inputveld na de storting
         amountInput.value = "";
       } else {
-        alert("Voer een geldig bedrag in.");
+        alert("Enter an valid amount.");
       }
     }
     // Wacht tot dat er withdrawed is. Laat daarna zien hoeveel er withdrawed is
@@ -89,7 +89,7 @@
         // Reset het inputveld na de opname
         amountInput.value = "";
       } else {
-        alert("Voer een geldig bedrag in.");
+        alert("Enter an valid amount.");
       }
     }
 
