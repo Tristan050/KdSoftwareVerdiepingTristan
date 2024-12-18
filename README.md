@@ -25,7 +25,7 @@ Follow these steps to set up and run the Banking Application:
 
 3. Run `./mvnw spring-boot:run` in the terminal.
 
-4. Go to the localhost url:
+4. Go to the following localhost url:
    ```sh
    localhost:8080
    ```
