@@ -53,7 +53,7 @@ This section lists the major frameworks/libraries used to bootstrap your project
 1. Start the application by running the following command:
    ```sh
    ./mvnw spring-boot:run
-   Go to localhost:8080 in the browser.
+   The Go to localhost:8080 in the browser.
    ```
 2. Follow these instructions in the application:
    - Click `Deposit` to deposit money.
