@@ -42,8 +42,11 @@ This section lists the major frameworks/libraries used to bootstrap your project
 - Check the balance of an account.
 - Deposit money into the account.
 - Withdraw money from the account.
-- View the previous transaction.
-- User-friendly interface.
+- View all the previous transactions
+- Invest crypto
+- Deposit crypto
+- Withdraw crypto
+- View the crypto charts
 
 ### Usage
 
@@ -55,8 +58,8 @@ This section lists the major frameworks/libraries used to bootstrap your project
 2. Follow these instructions in the application:
    - Click `Deposit` to deposit money.
    - Click `Withdraw` to withdraw money.
-   - Click `Previous Transaction` to view the previous transaction.
-
+   - Click `Buy crypto` to buy crypto with €
+   - Click `Withdraw crypto` to withdraw crypto back to your bank account
 ### Contact
 
 - **Name**: Tristan Zuidhof
