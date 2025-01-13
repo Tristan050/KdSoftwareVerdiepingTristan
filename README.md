@@ -19,7 +19,7 @@ Follow these steps to set up and run the Banking Application:
 
 1. Clone the repo:
    ```sh
-   git clone https://github.com/Tristan050/KdSoftwareVerdieping
+   git clone https://github.com/Tristan050/KdSoftwareVerdiepingTristan
    ```
 2. Open the project in Visual Studio Code (VSCode).
 
