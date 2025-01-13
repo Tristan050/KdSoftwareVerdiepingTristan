@@ -4,23 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="../js/editnaam.js"></script>
-    <title>Naam Wijzigen</title>
-    <!-- Voeg Tailwind CSS toe -->
+    <title>Edit Name</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-100 font-sans leading-normal tracking-normal flex justify-center items-center min-h-screen">
-    <div class="bg-white p-8 rounded-lg shadow-lg max-w-lg w-full">
-        <h1 class="text-2xl font-bold text-center text-gray-800 mb-6">Naam Wijzigen</h1>
+<body class="bg-gradient-to-br from-gray-100 to-gray-300 font-sans leading-normal tracking-normal flex justify-center items-center min-h-screen">
+    <div class="bg-gradient-to-r from-white to-gray-50 p-8 rounded-lg shadow-xl max-w-lg w-full border border-gray-200 mx-4 sm:mx-0">
+        <h1 class="text-3xl font-bold text-center text-gray-800 mb-6">Edit Name</h1>
         <form id="edit-name-form" onsubmit="updateName(event)" class="space-y-4">
             <div>
-                <label for="naam" class="block text-gray-700 font-medium">Nieuwe Naam:</label>
+                <label for="naam" class="block text-gray-700 font-medium">New Name:</label>
                 <input type="text" id="naam" name="naam" required 
-                    class="mt-2 p-3 border border-gray-300 rounded-md w-full focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent">
+                    class="mt-2 p-3 border border-gray-300 rounded-md w-full focus:outline-none focus:ring-4 focus:ring-indigo-400 focus:border-transparent">
             </div>
             <div class="flex justify-between items-center">
-                <a href="index.html" class="text-indigo-600 hover:text-indigo-800">Terug naar Home</a>
-                <input type="submit" value="Naam Wijzigen"
-                    class="bg-indigo-600 text-white py-2 px-6 rounded-md shadow-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                <a href="index.html" class="text-indigo-600 hover:text-indigo-900 transition-colors duration-300">Back to Home</a>
+                <input type="submit" value="Edit Name"
+                    class="bg-indigo-600 text-white py-2 px-6 rounded-md shadow-md hover:bg-indigo-800 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-indigo-500">
             </div>
         </form>
     </div>

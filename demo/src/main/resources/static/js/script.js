@@ -61,8 +61,8 @@ function initCharts(chartData) {
                         display: true,
                         text: 'BTC Price (€)',
                     },
-                    min: 86000, // Minimum waarde voor BTC
-                    max: 92000, // Maximum waarde voor BTC
+                    min: 88000, // Minimum waarde voor BTC
+                    max: 95000, // Maximum waarde voor BTC
                     beginAtZero: false,
                 },
             },
