@@ -65,4 +65,4 @@ This section lists the major frameworks/libraries used to bootstrap your project
 
 - **Name**: Tristan Zuidhof
 - **Email**: [tzuidhof@st.noorderpoort.nl](mailto:tzuidhof@st.noorderpoort.nl)
-- **Project Link**: [https://github.com/Tristan050/KdSoftwareVerdieping](https://github.com/Tristan050/KdSoftwareVerdieping)
+- **Project Link**: [https://github.com/Tristan050/KdSoftwareVerdiepingTristan](https://github.com/Tristan050/KdSoftwareVerdiepingTristan)
