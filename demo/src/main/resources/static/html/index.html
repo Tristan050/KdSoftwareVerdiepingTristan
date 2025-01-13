@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="../js/script.js"></script>
+  <title>BankApp</title>
+</head>
+
+<body class="font-sans flex items-center justify-center bg-white">
+  <div class="w-full max-w-4xl mx-auto p-8 shadow-2xl rounded-xl">
+    <div class="w-full max-w-4xl mx-auto p-8 shadow-2xl rounded-xl">
+
+      <!-- Navbar -->
+      <nav class="bg-gray-800 p-4 rounded-lg mb-6">
+        <ul class="flex justify-between text-white">
+          <li><a href="index.html" class="font-semibold text-lg">Home</a></li>
+          <li><a href="editNaam.html" class="font-semibold text-lg">Edit Name</a></li>
+          <!-- Let op de verandering hier -->
+        </ul>
+      </nav>
+
+      <!-- Header -->
+      <header class="text-center mb-6">
+        <h1 class="text-4xl font-semibold text-gray-700">Welcome, <span id="user-name">Loading...</span></h1>
+      </header>
+
+      <script>
+        async function fetchCurrentName() {
+          try {
+            const response = await fetch('/edit-name', { method: 'GET' });
+            const data = await response.json();
+            document.getElementById('user-name').textContent = data.userName;
+          } catch (error) {
+            console.error('Fout bij het ophalen van de naam:', error);
+          }
+        }
+
+        document.addEventListener('DOMContentLoaded', fetchCurrentName);
+      </script>
+
+      <!-- Bank Balans -->
+      <div id="balance" class="text-2xl font-semibold text-gray-700 mt-4 mb-6">Balance: €0</div>
+
+      <!-- Deposit/Withdraw Functionaliteit -->
+      <div class="space-y-4">
+        <input id="amount" type="number" placeholder="Enter an amount"
+          class="w-full p-4 border-2 border-gray-300 rounded-lg text-xl focus:outline-none focus:ring-2 focus:ring-green-500 transition-all duration-200">
+
+        <button onclick="deposit()"
+          class="w-full bg-gradient-to-r from-green-400 via-green-500 to-green-600 text-white py-3 rounded-lg font-semibold text-lg hover:bg-green-700 transition duration-200 ease-in-out transform hover:scale-105 deposit-button">
+          Deposit
+        </button>
+
+        <button onclick="withdraw()"
+          class="w-full bg-gradient-to-r from-red-400 via-red-500 to-red-600 text-white py-3 rounded-lg font-semibold text-lg hover:bg-red-700 transition duration-200 ease-in-out transform hover:scale-105 withdraw-button">
+          Withdraw
+        </button>
+      </div>
+
+      <!-- Transactie Geschiedenis -->
+      <div class="mt-8">
+        <h2 class="text-xl font-bold text-gray-700 mb-4">Transaction History</h2>
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr>
+              <th class="border-b-2 border-gray-300 py-2">Type</th>
+              <th class="border-b-2 border-gray-300 py-2">Amount</th>
+              <th class="border-b-2 border-gray-300 py-2">Date</th>
+            </tr>
+          </thead>
+          <tbody id="transaction-history">
+            <!-- Transacties worden hier toegevoegd -->
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Crypto Functionaliteit -->
+      <div class="mt-8">
+        <h2 class="text-xl font-bold text-gray-700 mb-4">Crypto Wallet</h2>
+
+        <!-- Live Prijzen -->
+        <div class="mb-4">
+          <h3 class="text-lg font-bold text-gray-700">Live Crypto Prices:</h3>
+          <ul id="crypto-prices" class="list-disc pl-5 text-gray-700">
+            <li>BTC: Loading...</li>
+            <li>ETH: Loading...</li>
+          </ul>
+        </div>
+
+        <!-- Crypto Wallet -->
+        <div class="mb-4">
+          <h3 class="text-lg font-bold text-gray-700">Your Crypto Balances:</h3>
+          <ul id="crypto-balances" class="list-disc pl-5 text-gray-700">
+            <li>BTC: 0</li>
+            <li>ETH: 0</li>
+          </ul>
+        </div>
+
+        <!-- Koop Crypto voor crypto -->
+        <h3 class="text-xl font-bold text-gray-700 mb-4">Buy Crypto</h3>
+        <label for="crypto-withdraw-select" class="block text-md font-medium text-gray-700">Select Crypto to buy</label>
+        <select id="crypto-select" class="w-full p-4 border-2 border-gray-300 rounded-lg text-xl mb-2">
+          <option value="BTC">Buy BTC</option>
+          <option value="ETH">Buy ETH</option>
+        </select>
+        <label for="crypto-withdraw-amount" class="block text-md font-medium text-gray-700">Amount</label>
+        <input id="crypto-amount" type="number" placeholder="Enter amount in €"
+          class="w-full p-4 border-2 border-gray-300 rounded-lg text-xl focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-200">
+        <button onclick="buyCrypto()"
+          class="w-full bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600 text-white py-3 rounded-lg font-semibold text-lg hover:bg-blue-700 transition duration-200 ease-in-out transform hover:scale-105 mt-4">
+          Buy Crypto
+        </button>
+      </div>
+
+      <!-- Withdraw functie voor crypto -->
+      <div class="mt-8">
+        <h3 class="text-xl font-bold text-gray-700 mb-4">Withdraw Crypto</h3>
+        <div class="space-y-4">
+          <div>
+            <label for="crypto-withdraw-select" class="block text-md font-medium text-gray-700">Select Crypto to
+              withdraw</label>
+            <select id="crypto-withdraw-select"
+              class="w-full p-4 border-2 border-gray-300 rounded-lg text-xl focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-200">
+              <option value="BTC">Withdraw BTC</option>
+              <option value="ETH">Withdraw ETH</option>
+            </select>
+          </div>
+          <div>
+            <label for="crypto-withdraw-amount" class="block text-md font-medium text-gray-700">Amount</label>
+            <input id="crypto-withdraw-amount" type="number" step="0.000001"
+              class="w-full p-4 border-2 border-gray-300 rounded-lg text-xl focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-200"
+              placeholder="Amount to withdraw">
+          </div>
+          <button onclick="withdrawCrypto()"
+            class="w-full bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600 text-white py-3 rounded-lg font-semibold text-lg hover:bg-blue-700 transition duration-200 ease-in-out transform hover:scale-105 mt-4">Withdraw</button>
+        </div>
+      </div>
+
+      <!-- Crypto Grafieken (voor beide btc & eth) -->
+      <div class="mt-8">
+        <h3 class="text-xl font-bold text-gray-700 mb-4">Crypto Price Chart</h3>
+        <div class="flex space-x-4">
+          <div class="w-1/2">
+            <canvas id="btcChart" class="h-96"></canvas>
+          </div>
+          <div class="w-1/2">
+            <canvas id="ethChart" class="h-96"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+
+</body>
+
+</html>
