@@ -27,7 +27,7 @@ Follow these steps to set up and run the Banking Application:
 
 4. Go to the following localhost url:
    ```sh
-   localhost:8080
+   localhost:8060
    ```
 
 ### Built With
@@ -40,6 +40,7 @@ This section lists the major frameworks/libraries used to bootstrap your project
 ### Features
 
 - Check the balance of an account.
+- Edit the name of the account.
 - Deposit money into the account.
 - Withdraw money from the account.
 - View all the previous transactions
@@ -53,13 +54,14 @@ This section lists the major frameworks/libraries used to bootstrap your project
 1. Start the application by running the following command:
    ```sh
    ./mvnw spring-boot:run
-   The Go to localhost:8080 in the browser.
+   The Go to localhost:8060 in the browser.
    ```
 2. Follow these instructions in the application:
    - Click `Deposit` to deposit money.
    - Click `Withdraw` to withdraw money.
    - Click `Buy crypto` to buy crypto with €
    - Click `Withdraw crypto` to withdraw crypto back to your bank account
+     
 ### Contact
 
 - **Name**: Tristan Zuidhof
