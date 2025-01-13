@@ -44,7 +44,6 @@ This section lists the major frameworks/libraries used to bootstrap your project
 - Deposit money into the account.
 - Withdraw money from the account.
 - View all the previous transactions
-- Invest crypto
 - Deposit crypto
 - Withdraw crypto
 - View the crypto charts
