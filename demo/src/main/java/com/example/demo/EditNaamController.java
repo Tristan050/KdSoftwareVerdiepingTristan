@@ -22,8 +22,9 @@ public class EditNaamController {
             return ResponseEntity.badRequest().body("Naam mag niet leeg zijn.");
         }
         currentName = name;
+    
         return ResponseEntity.ok().body(new NameResponse(currentName));
-    }
+    }    
 
     // Hulpklasse voor het verzenden van JSON-antwoorden
     public static class NameResponse {

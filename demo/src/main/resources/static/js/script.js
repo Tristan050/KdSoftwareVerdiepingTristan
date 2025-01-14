@@ -61,8 +61,8 @@ function initCharts(chartData) {
                         display: true,
                         text: 'BTC Price (€)',
                     },
-                    min: 88000, // Minimum waarde voor BTC
-                    max: 95000, // Maximum waarde voor BTC
+                    min: 90000, // Minimum waarde voor BTC
+                    max: 100000, // Maximum waarde voor BTC
                     beginAtZero: false,
                 },
             },
@@ -98,8 +98,8 @@ function initCharts(chartData) {
                         display: true,
                         text: 'ETH Price (€)',
                     },
-                    min: 2800, // Minimum waarde voor ETH
-                    max: 3200, // Maximum waarde voor ETH
+                    min: 3000, // Minimum waarde voor ETH
+                    max: 3600, // Maximum waarde voor ETH
                     beginAtZero: false,
                 },
             },
@@ -140,7 +140,7 @@ async function fetchCryptoPrices(chartData) {
         ETH: data.ethereum.eur,
     };
 
-// Zet de live prijzen in de html
+    // Zet de live prijzen in de html
     if (prices && prices.BTC && prices.ETH) {
         document.getElementById("crypto-prices").innerHTML = `
 <li><img src="images/btc.png" alt="BTC Logo" class="inline-block w-6 h-6"> BTC: €${prices.BTC}</li>
@@ -290,3 +290,45 @@ async function getCryptoPrice(crypto) {
     const prices = await fetchCryptoPrices();
     return prices[crypto];
 }
+// Verifieer de ingevoerde pin-code
+function verifyPin() {
+    const enteredPin = document.getElementById('pin-input').value;
+
+    // Pincode valideren via de server
+    fetch('/verifyPin', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ pin: enteredPin }),
+    })
+        .then(response => {
+            if (response.ok) {
+            // Correcte pin-code
+                document.getElementById('pin-code-verification').style.display = 'none';
+            } else {
+            // Onjuiste pin-code
+                alert('Onjuiste pin-code! Probeer het opnieuw.');
+            }
+        })
+        .catch(error => console.error('Error:', error));
+}
+
+// Zorg ervoor dat de pin-codeverificatie wordt uitgevoerd bij het laden van de pagina
+document.addEventListener('DOMContentLoaded', () => {
+    fetch('/isPinSet') // Vraag de server of de pin-code is ingesteld
+        .then(response => response.json())
+        .then(data => {
+            if (!data.pinSet) {
+                alert('Stel eerst een pin-code in.');
+                window.location.href = '/setPinCode'; // Stuur de gebruiker naar de juiste route
+            } else {
+                // Toon de verificatie
+                const pinCodeVerificationElement = document.getElementById('pin-code-verification');
+                if (pinCodeVerificationElement) {
+                    pinCodeVerificationElement.style.display = 'flex';
+                } else {
+                    console.error('Element pin-code-verification niet gevonden in de DOM.');
+                }
+            }
+        })
+        .catch(error => console.error('Error:', error));
+});

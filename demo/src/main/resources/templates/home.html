@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script src="../js/script.js"></script>
+  <script src="../static/js/script.js"></script>
   <title>BankApp</title>
 </head>
 
@@ -17,7 +17,7 @@
       <!-- Navbar -->
       <nav class="bg-gray-800 p-4 rounded-lg mb-6">
         <ul class="flex justify-between text-white">
-          <li><a href="index.html" class="font-semibold text-lg">Home</a></li>
+          <li><a href="home.html" class="font-semibold text-lg">Home</a></li>
           <li><a href="editNaam.html" class="font-semibold text-lg">Edit Name</a></li>
         </ul>
       </nav>
@@ -26,6 +26,25 @@
       <header class="text-center mb-6">
         <h1 class="text-4xl font-semibold text-gray-700">Welcome, <span id="user-name">Loading...</span></h1>
       </header>
+
+      <!-- Pin-code Verificatie -->
+      <div id="pin-code-verification"
+        class="fixed inset-0 flex justify-center items-center bg-gray-900 bg-opacity-50 z-50">
+        <div class="bg-white p-6 rounded-lg shadow-lg w-80">
+          <h2 class="text-xl font-semibold text-gray-700 mb-4">Voer je pin-code in</h2>
+          <form action="/setPinCode" method="POST">
+            <input type="text" name="pin" class="w-full p-3 border-2 border-gray-300 rounded-md mb-4" maxlength="4"
+              placeholder="Pin-code" required>
+            <button type="submit"
+              class="w-full bg-blue-600 text-white py-3 rounded-md hover:bg-blue-700">Verifiëren</button>
+          </form>
+          <!-- Foutmelding weergeven -->
+          <div th:if="${param.error}">
+            <p class="text-red-500 text-sm">Onjuiste pin-code, probeer het opnieuw.</p>
+          </div>
+        </div>
+      </div>
+
 
       <script>
         async function fetchCurrentName() {
@@ -85,19 +104,33 @@
         <div class="mb-4">
           <h3 class="text-lg font-bold text-gray-700">Live Crypto Prices:</h3>
           <ul id="crypto-prices" class="list-disc pl-5 text-gray-700">
-            <li>BTC: Loading...</li>
-            <li>ETH: Loading...</li>
+            <li>
+              <img src="btc.png" alt="BTC" class="inline-block w-6 h-6 mr-2">
+              BTC: <span id="btc-price">Loading...</span>
+            </li>
+            <li>
+              <img src="eth.png" alt="ETH" class="inline-block w-6 h-6 mr-2">
+              ETH: <span id="eth-price">Loading...</span>
+            </li>
           </ul>
         </div>
+
 
         <!-- Crypto Wallet -->
         <div class="mb-4">
           <h3 class="text-lg font-bold text-gray-700">Your Crypto Balances:</h3>
           <ul id="crypto-balances" class="list-disc pl-5 text-gray-700">
-            <li>BTC: 0</li>
-            <li>ETH: 0</li>
+            <li>
+              <img src="btc.png" alt="BTC" class="inline-block w-6 h-6 mr-2">
+              BTC: <span id="btc-balance">0</span>
+            </li>
+            <li>
+              <img src="eth.png" alt="ETH" class="inline-block w-6 h-6 mr-2">
+              ETH: <span id="eth-balance">0</span>
+            </li>
           </ul>
         </div>
+
 
         <!-- Koop Crypto voor crypto -->
         <h3 class="text-xl font-bold text-gray-700 mb-4">Buy Crypto</h3>
@@ -135,7 +168,8 @@
               placeholder="Amount to withdraw">
           </div>
           <button onclick="withdrawCrypto()"
-            class="w-full bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600 text-white py-3 rounded-lg font-semibold text-lg hover:bg-blue-700 transition duration-200 ease-in-out transform hover:scale-105 mt-4">Withdraw Cypto</button>
+            class="w-full bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600 text-white py-3 rounded-lg font-semibold text-lg hover:bg-blue-700 transition duration-200 ease-in-out transform hover:scale-105 mt-4">Withdraw
+            Cypto</button>
         </div>
       </div>
 
