@@ -13,7 +13,7 @@ public class MainController {
 
     @GetMapping("/")
     public String index() {
-        return "home"; // Dit zorgt ervoor dat de root URL ook naar index.html gaat
+        return "home"; // Dit zorgt ervoor dat de root URL ook naar home.html gaat
     }
 
     @GetMapping("/setPinCode")

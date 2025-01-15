@@ -290,45 +290,12 @@ async function getCryptoPrice(crypto) {
     const prices = await fetchCryptoPrices();
     return prices[crypto];
 }
-// Verifieer de ingevoerde pin-code
-function verifyPin() {
-    const enteredPin = document.getElementById('pin-input').value;
+// // Controleer bij het laden of de pincode is ingevoerd in deze sessie
+// document.addEventListener("DOMContentLoaded", function () {
+//     const pinEntered = sessionStorage.getItem("pinEntered");
 
-    // Pincode valideren via de server
-    fetch('/verifyPin', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ pin: enteredPin }),
-    })
-        .then(response => {
-            if (response.ok) {
-            // Correcte pin-code
-                document.getElementById('pin-code-verification').style.display = 'none';
-            } else {
-            // Onjuiste pin-code
-                alert('Onjuiste pin-code! Probeer het opnieuw.');
-            }
-        })
-        .catch(error => console.error('Error:', error));
-}
-
-// Zorg ervoor dat de pin-codeverificatie wordt uitgevoerd bij het laden van de pagina
-document.addEventListener('DOMContentLoaded', () => {
-    fetch('/isPinSet') // Vraag de server of de pin-code is ingesteld
-        .then(response => response.json())
-        .then(data => {
-            if (!data.pinSet) {
-                alert('Stel eerst een pin-code in.');
-                window.location.href = '/setPinCode'; // Stuur de gebruiker naar de juiste route
-            } else {
-                // Toon de verificatie
-                const pinCodeVerificationElement = document.getElementById('pin-code-verification');
-                if (pinCodeVerificationElement) {
-                    pinCodeVerificationElement.style.display = 'flex';
-                } else {
-                    console.error('Element pin-code-verification niet gevonden in de DOM.');
-                }
-            }
-        })
-        .catch(error => console.error('Error:', error));
-});
+//     if (!pinEntered) {
+//         // Als geen pincode is ingevoerd, doorverwijzen naar /setPinCode
+//         window.location.href = "/setPinCode";
+//     }
+// });

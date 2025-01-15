@@ -8,11 +8,24 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class PinCodeController {
 
-    private static final String PIN_CODE = "1234";  // Voorbeeld pin-code
+    private static final String PIN_CODE = "1234";  // Voorbeeld pin-code, kan aangepast worden
 
     @GetMapping("/setPinCode")
     public String showSetPinCodePage() {
         return "setPinCode"; // Dit stuurt naar setPinCode.html
+    }
+    @GetMapping("/home")
+    public String home() {
+        return "home"; // Hiermee wordt home.html uit de templates map geladen
+    }
+    @GetMapping("/editNaam")
+    public String editNaam() {
+        return "editNaam"; // Hiermee wordt editNaam.html uit de templates map geladen
+    }
+
+    @GetMapping("/")
+    public String index() {
+        return "home"; // Dit zorgt ervoor dat de root URL ook naar home.html gaat
     }
 
     @PostMapping("/setPinCode")
@@ -25,4 +38,5 @@ public class PinCodeController {
             return "pinSetFailure"; // Dit is een pagina die de foutmelding toont.
         }
     }
+
 }

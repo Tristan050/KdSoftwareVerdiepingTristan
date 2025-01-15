@@ -21,8 +21,8 @@ async function updateName(event) {
         const data = await response.json();
         alert(`Naam succesvol gewijzigd naar: ${data.userName}`);
 
-        // Redirect naar de indexpagina na succesvolle wijziging van de naam
-        window.location.href = 'index.html';
+        // Redirect naar de homepagina na succesvolle wijziging van de naam
+        window.location.href = '/home';
     } catch (error) {
         console.error(error);
         alert('Er is een fout opgetreden.');

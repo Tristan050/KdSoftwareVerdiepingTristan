@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="../static/js/editnaam.js"></script>
+    <script type="text/javascript" th:src="@{/js/editnaam.js}"></script>
     <title>Edit Name</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
@@ -17,10 +17,13 @@
                     class="mt-2 p-3 border border-gray-300 rounded-md w-full focus:outline-none focus:ring-4 focus:ring-indigo-400 focus:border-transparent">
             </div>
             <div class="flex justify-between items-center">
-                <a href="index.html" class="text-indigo-600 hover:text-indigo-900 transition-colors duration-300">Back to Home</a>
-                <input type="submit" value="Edit Name"
-                    class="bg-indigo-600 text-white py-2 px-6 rounded-md shadow-md hover:bg-indigo-800 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-indigo-500">
-            </div>
+                <a href="/home" class="text-indigo-600 hover:text-indigo-900 transition-colors duration-300">Back to Home</a>
+                <form id="editForm" action="/home" method="POST">
+                    <input type="submit" value="Edit Name"
+                        class="bg-indigo-600 text-white py-2 px-6 rounded-md shadow-md hover:bg-indigo-800 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                        onclick="window.location.href='/home';">
+                </form>
+            </div>            
         </form>
     </div>
 </body>
