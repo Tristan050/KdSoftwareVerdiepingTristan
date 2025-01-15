@@ -27,7 +27,7 @@ Follow these steps to set up and run the Banking Application:
 
 4. Go to the following localhost url:
    ```sh
-   localhost:8060
+   localhost:8080/
    ```
 
 ### Built With
@@ -53,7 +53,7 @@ This section lists the coding languages i used. Below is an example:
 1. Start the application by running the following command:
    ```sh
    ./mvnw spring-boot:run
-   The Go to localhost:8060 in the browser.
+   The Go to localhost:8080/ in the browser.
    ```
 2. Follow these instructions in the application:
    - Click `Deposit` to deposit money.
