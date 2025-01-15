@@ -35,7 +35,7 @@ Follow these steps to set up and run the Banking Application:
 This section lists the coding languages i used. Below is an example:
 
 * ![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white)
-* <img src="./demo/images/Spring.png" width="70" height="35" />
+* <img src="./demo/images/Spring.png" width="60" height="30" />
 
 ### Features
 
