@@ -27,7 +27,7 @@ Follow these steps to set up and run the Banking Application:
 
 4. Go to the following localhost url:
    ```sh
-   localhost:8060
+   localhost:8080/
    ```
 
 ### Built With
