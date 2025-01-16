@@ -290,12 +290,3 @@ async function getCryptoPrice(crypto) {
     const prices = await fetchCryptoPrices();
     return prices[crypto];
 }
-// // Controleer bij het laden of de pincode is ingevoerd in deze sessie
-// document.addEventListener("DOMContentLoaded", function () {
-//     const pinEntered = sessionStorage.getItem("pinEntered");
-
-//     if (!pinEntered) {
-//         // Als geen pincode is ingevoerd, doorverwijzen naar /setPinCode
-//         window.location.href = "/setPinCode";
-//     }
-// });
