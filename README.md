@@ -58,6 +58,7 @@ This section lists the coding languages i used. Below is an example:
 2. Follow these instructions in the application:
    - Click `Deposit` to deposit money.
    - Click `Withdraw` to withdraw money.
+   - Click `Edit Name` to edit your name.
    - Click `Buy crypto` to buy crypto with €
    - Click `Withdraw crypto` to withdraw crypto back to your bank account
      
