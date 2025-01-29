@@ -8,9 +8,9 @@ To get a local copy up and running follow these simple example steps.
 This is an example of how to list things you need to use the software and how to install them.
 
   ```
-  Ga naar de officiële Oracle Java-downloadpagina of gebruik OpenJDK.
-Download en installeer de juiste versie.
-Zorg ervoor dat de Java-installatiemap is toegevoegd aan je PATH-variabele.
+  Go to the official Oracle Java download page or use OpenJDK.
+Download and install the correct version.
+Make sure the Java installation directory is added to your PATH variable.
   ```
 
 ### Installation
