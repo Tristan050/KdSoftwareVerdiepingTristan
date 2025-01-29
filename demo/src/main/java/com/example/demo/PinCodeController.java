@@ -40,7 +40,6 @@ public class PinCodeController {
             session.setAttribute("isVerified", true);
             return "pinSetSuccess";
         } else {
-            // Pin-code onjuist
             session.setAttribute("isVerified", false);
             return "pinSetFailure";
         }
