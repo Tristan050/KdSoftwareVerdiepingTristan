@@ -12,15 +12,13 @@ import jakarta.servlet.http.HttpSession;
 @RequestMapping("/edit-name")
 public class EditNaamController {
 
-    private String currentName = "Gebruiker"; // Hier sla ik de naam op (default name)
+    private String currentName = "Gebruiker";
 
-    // Haal de huidige naam op
     @GetMapping
     public ResponseEntity<?> fetchCurrentName() {
         return ResponseEntity.ok().body(new NameResponse(currentName));
     }
 
-    // Verwerking van de POST-aanvraag om de naam te wijzigen
     @PostMapping
     public ResponseEntity<?> updateName(@RequestParam("name") String name) {
         if (name == null || name.isBlank()) {
@@ -31,7 +29,6 @@ public class EditNaamController {
         return ResponseEntity.ok().body(new NameResponse(currentName));
     }    
 
-    // Hulpklasse voor het verzenden van JSON-antwoorden
     public static class NameResponse {
         private String userName;
 

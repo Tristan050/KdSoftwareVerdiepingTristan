@@ -15,7 +15,6 @@
   <div class="w-full max-w-4xl mx-auto p-8 shadow-2xl rounded-xl">
     <div class="w-full max-w-4xl mx-auto p-8 shadow-2xl rounded-xl">
 
-      <!-- Navbar -->
       <nav class="bg-gray-800 p-4 rounded-lg mb-6">
         <ul class="flex justify-between text-white">
           <li><a href="/home" class="font-semibold text-lg">Home</a></li>
@@ -23,7 +22,6 @@
         </ul>
       </nav>
 
-      <!-- Header -->
       <header class="text-center mb-6">
         <h1 class="text-4xl font-semibold text-gray-700">Welcome, <span id="user-name">Loading...</span></h1>
       </header>
@@ -42,10 +40,8 @@
         document.addEventListener('DOMContentLoaded', fetchCurrentName);
       </script>
 
-      <!-- Bank Balans -->
       <div id="balance" class="text-2xl font-semibold text-gray-700 mt-4 mb-6">Balance: €0</div>
 
-      <!-- Deposit/Withdraw Functionaliteit -->
       <div class="space-y-4">
         <input id="amount" type="number" placeholder="Enter an amount"
           class="w-full p-4 border-2 border-gray-300 rounded-lg text-xl focus:outline-none focus:ring-2 focus:ring-green-500 transition-all duration-200">
@@ -61,7 +57,6 @@
         </button>
       </div>
 
-      <!-- Transactie Geschiedenis -->
       <div class="mt-8">
         <h2 class="text-xl font-bold text-gray-700 mb-4">Transaction History</h2>
         <table class="w-full text-left border-collapse">
@@ -73,16 +68,14 @@
             </tr>
           </thead>
           <tbody id="transaction-history">
-            <!-- Transacties worden hier toegevoegd -->
+
           </tbody>
         </table>
       </div>
 
-      <!-- Crypto Functionaliteit -->
       <div class="mt-8">
         <h2 class="text-xl font-bold text-gray-700 mb-4">Crypto Wallet</h2>
 
-        <!-- Live Prijzen -->
         <div class="mb-4">
           <h3 class="text-lg font-bold text-gray-700">Live Crypto Prices:</h3>
           <ul id="crypto-prices" class="list-disc pl-5 text-gray-700">
@@ -98,7 +91,6 @@
         </div>
 
 
-        <!-- Crypto Wallet -->
         <div class="mb-4">
           <h3 class="text-lg font-bold text-gray-700">Your Crypto Balances:</h3>
           <ul id="crypto-balances" class="list-disc pl-5 text-gray-700">
@@ -114,7 +106,6 @@
         </div>
 
 
-        <!-- Koop Crypto voor crypto -->
         <h3 class="text-xl font-bold text-gray-700 mb-4">Buy Crypto</h3>
         <label for="crypto-withdraw-select" class="block text-md font-medium text-gray-700">Select Crypto to buy</label>
         <select id="crypto-select" class="w-full p-4 border-2 border-gray-300 rounded-lg text-xl mb-2">
@@ -130,7 +121,6 @@
         </button>
       </div>
 
-      <!-- Withdraw functie voor crypto -->
       <div class="mt-8">
         <h3 class="text-xl font-bold text-gray-700 mb-4">Withdraw Crypto</h3>
         <div class="space-y-4">
@@ -155,7 +145,6 @@
         </div>
       </div>
 
-      <!-- Crypto Grafieken (voor beide btc & eth) -->
       <div class="mt-8">
         <h3 class="text-xl font-bold text-gray-700 mb-4">Crypto Price Chart</h3>
         <div class="flex space-x-4">

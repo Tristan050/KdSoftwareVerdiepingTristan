@@ -9,40 +9,40 @@ import jakarta.servlet.http.HttpSession;
 @Controller
 public class PinCodeController {
 
-    private static final String PIN_CODE = "1234"; // Voorbeeld pin-code
+    private static final String PIN_CODE = "1234";
 
     @GetMapping("/setPinCode")
     public String showSetPinCodePage() {
-        return "setPinCode"; // Stuurt naar setPinCode.html
+        return "setPinCode";
     }
     @GetMapping("/editNaam")
     public String editNaam() {
-        return "editNaam"; // Hiermee wordt editNaam.html uit de templates map geladen
+        return "editNaam";
     }
 
     @GetMapping("/home")
     public String home(HttpSession session) {
         Boolean isVerified = (Boolean) session.getAttribute("isVerified");
         if (isVerified != null && isVerified) {
-            return "home"; // Laad home.html als de gebruiker geverifieerd is
+            return "home";
         }
-        return "redirect:/setPinCode"; // Stuur door naar de pincode-pagina als niet geverifieerd
+        return "redirect:/setPinCode";
     }
 
     @GetMapping("/")
     public String index() {
-        return "redirect:/home"; // Stuur root naar /home
+        return "redirect:/home";
     }
 
     @PostMapping("/setPinCode")
     public String setPinCode(@RequestParam("pin") String pin, HttpSession session) {
         if (PIN_CODE.equals(pin)) {
             session.setAttribute("isVerified", true);
-            return "pinSetSuccess"; // Stuur door naar /home
+            return "pinSetSuccess";
         } else {
             // Pin-code onjuist
             session.setAttribute("isVerified", false);
-            return "pinSetFailure"; // Toon foutpagina
+            return "pinSetFailure";
         }
     }
 }

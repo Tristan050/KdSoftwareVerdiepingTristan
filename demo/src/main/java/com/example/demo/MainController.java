@@ -8,16 +8,16 @@ public class MainController {
 
     @GetMapping("/home")
     public String home() {
-        return "home"; // Hiermee wordt home.html uit de templates map geladen
+        return "home";
     }
 
     @GetMapping("/")
     public String index() {
-        return "home"; // Dit zorgt ervoor dat de root URL ook naar home.html gaat
+        return "home";
     }
 
     @GetMapping("/setPinCode")
     public String setPinCode() {
-        return "setPinCode"; // Dit laadt setPinCode.html uit de templates map
+        return "setPinCode";
     }
 }
