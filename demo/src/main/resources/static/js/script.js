@@ -95,7 +95,7 @@ function initCharts(chartData) {
                         display: true,
                         text: 'ETH Price (€)',
                     },
-                    min: 2800,
+                    min: 2500,
                     max: 3500,
                     beginAtZero: false,
                 },
