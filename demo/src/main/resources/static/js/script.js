@@ -58,9 +58,13 @@ function initCharts(chartData) {
                         display: true,
                         text: 'BTC Price (€)',
                     },
-                    min: 95000,
-                    max: 105000,
-                    beginAtZero: false,
+                    ticks: {
+                        callback: function (value) {
+                            return '€' + value.toLocaleString();
+                        },
+                    },
+                    suggestedMin: chartData.btcData.length ? Math.min(...chartData.btcData) * 0.95 : undefined,
+                    suggestedMax: chartData.btcData.length ? Math.max(...chartData.btcData) * 1.05 : undefined,
                 },
             },
         },
@@ -95,9 +99,13 @@ function initCharts(chartData) {
                         display: true,
                         text: 'ETH Price (€)',
                     },
-                    min: 2500,
-                    max: 3500,
-                    beginAtZero: false,
+                    ticks: {
+                        callback: function (value) {
+                            return '€' + value.toLocaleString();
+                        },
+                    },
+                    suggestedMin: chartData.ethData.length ? Math.min(...chartData.ethData) * 0.95 : undefined,
+                    suggestedMax: chartData.ethData.length ? Math.max(...chartData.ethData) * 1.05 : undefined,
                 },
             },
         },
